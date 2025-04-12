@@ -1,0 +1,14 @@
+{
+  "name": "minecraft-ai-railway",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "mineflayer": "^4.12.0",
+    "mineflayer-pathfinder": "^2.6.2"
+  }
+}
