@@ -22,7 +22,10 @@ bot.once('spawn', () => {
   setInterval(async () => {
     const state = extractState(bot);
     const action = await getActionFromAI(state);
-    if (action) await executeAction(bot, action);
+    if (action) {
+      bot.whisper(bot.username, `🤖 AI решил: ${action}`);
+      await executeAction(bot, action);
+    }
   }, 8000);
 });
 
