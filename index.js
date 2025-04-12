@@ -37,3 +37,13 @@ bot.on('chat', async (username, message) => {
   const reply = await getActionFromAI({ promptOnly: true, prompt });
   if (reply) bot.chat(reply.slice(0, 100));
 });
+// Мини-сервер, чтобы Railway думал что мы живы
+const http = require('http');
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('🤖 Minecraft AGI Bot is running');
+}).listen(PORT, () => {
+  console.log(`[HTTP] Fake server listening on port ${PORT}`);
+});
