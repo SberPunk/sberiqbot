@@ -8,7 +8,7 @@ module.exports = async function executeAction(bot, command) {
 
   if (command.startsWith('dig')) {
     const [x, y, z] = command.match(/\d+/g).map(Number);
-    const block = bot.blockAt({ x, y, z });
+    const block = bot.blockAt({ x: Math.floor(x), y: Math.floor(y), z: Math.floor(z) });
     if (block) {
       try {
         await bot.dig(block);
