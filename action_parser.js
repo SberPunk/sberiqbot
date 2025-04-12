@@ -1,4 +1,3 @@
-
 const { GoalBlock } = require('mineflayer-pathfinder').goals;
 
 module.exports = async function executeAction(bot, command) {
