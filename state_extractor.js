@@ -23,3 +23,4 @@ module.exports = function extractState(bot) {
     `.trim()
   };
 };
+
