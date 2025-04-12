@@ -6,23 +6,23 @@ module.exports = async function getActionFromAI(state) {
 
   try {
     const res = await axios.post(
-      'https://api.deepseek.com/chat/completions',
+      'https://openrouter.ai/api/v1/chat/completions',
       {
-        model: 'deepseek-chat',
+        model: "mistralai/mistral-7b-instruct",
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.7
       },
       {
         headers: {
-          'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
-          'Content-Type': 'application/json'
+          "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json"
         }
       }
     );
 
     return res.data.choices[0].message.content.trim();
   } catch (err) {
-    console.error("DeepSeek ошибка:", err.message);
+    console.error("OpenRouter ошибка:", err.message);
     return null;
   }
 }
